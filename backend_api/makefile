@@ -1,0 +1,9 @@
+dev-start:
+	python3 manage.py runserver --settings=config.settings.dev
+dev-migrate:
+	python3 manage.py migrate --settings=config.settings.dev
+dev-makemigrations:
+	python3 manage.py makemigrations --settings=config.settings.dev
+dev-install:
+	pip install -r requirements/dev.txt
+	
