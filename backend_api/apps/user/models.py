@@ -5,7 +5,7 @@ from django.contrib.auth.models import (
 )
 from django.db import models
 
-from apps.core.abstract.models import AbstractManager, AbstractModel
+from apps.core.abstract import AbstractManager, AbstractModel
 
 
 # Create your models here.

@@ -1,11 +1,8 @@
-from rest_framework import serializers
-
+from apps.core.abstract import AbstractSerializer
 from apps.user import models
 
 
-class UserSerializer(serializers.ModelSerializer):
-    id = serializers.UUIDField(source="public_id", read_only=True, format="hex")
-
+class UserSerializer(AbstractSerializer):
     class Meta:
         model = models.User
         fields = (
