@@ -1,1 +1,2 @@
-from apps.auth.serializers.register import RegistrationSerializer
+from .login import LoginSerializer
+from .register import RegistrationSerializer
