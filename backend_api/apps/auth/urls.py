@@ -1,0 +1,11 @@
+from rest_framework import routers
+
+from . import viewsets
+
+router = routers.SimpleRouter()
+
+router.register(r"auth/register", viewsets.RegisterViewSet, basename="auth-register")
+
+urlpatterns = [
+    *router.urls,
+]

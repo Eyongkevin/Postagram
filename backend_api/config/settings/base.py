@@ -36,11 +36,13 @@ DEFAULT_APPS = [
 CUSTOM_APPS = [
     "apps.user.apps.UserConfig",
     "apps.core.apps.CoreConfig",
+    "apps.auth.apps.AuthConfig",
 ]
 
 THIRD_PARTY_APPS = [
     "django_filters",
     "rest_framework",
+    "rest_framework_simplejwt",
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
@@ -94,6 +96,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend",
+    ],
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
