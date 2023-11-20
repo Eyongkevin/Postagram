@@ -17,4 +17,4 @@ class UserSerializer(AbstractSerializer):
             "created",
             "updated",
         )
-        read_only_field = ("is_active", "created", "updated")
+        read_only_fields = ("is_active", "created", "updated")

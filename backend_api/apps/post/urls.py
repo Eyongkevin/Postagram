@@ -1,10 +1,10 @@
 from rest_framework import routers
 
-from . import views
+from .views import PostViewSet
 
 router = routers.SimpleRouter()
 
-router.register(r"v1/user", views.UserViewSet, basename="user")
+router.register(r"v1/post", PostViewSet, basename="post")
 
 urlpatterns = [
     *router.urls,

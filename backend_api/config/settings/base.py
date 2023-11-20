@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import datetime
 from pathlib import Path
 
 import environ
@@ -37,12 +38,14 @@ CUSTOM_APPS = [
     "apps.user.apps.UserConfig",
     "apps.core.apps.CoreConfig",
     "apps.auth.apps.AuthConfig",
+    "apps.post.apps.PostConfig",
 ]
 
 THIRD_PARTY_APPS = [
     "django_filters",
     "rest_framework",
     "rest_framework_simplejwt",
+    "django_extensions",
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
@@ -103,6 +106,18 @@ REST_FRAMEWORK = {
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend",
     ],
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
+    "PAGE_SIZE": 15,
+}
+
+JWT_AUTH = {
+    # how long the original token is valid for
+    "JWT_EXPIRATION_DELTA": datetime.timedelta(days=2),
+    # allow refreshing of tokens
+    "JWT_ALLOW_REFRESH": True,
+    # this is the maximum time AFTER the token was issued that
+    # it can be refreshed.  exprired tokens can't be refreshed.
+    "JWT_REFRESH_EXPIRATION_DELTA": datetime.timedelta(days=7),
 }
 
 # Internationalization
