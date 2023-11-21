@@ -6,7 +6,12 @@ class UserPermission(BasePermission):
         if request.user.is_anonymous:
             return request.method in SAFE_METHODS
         if view.basename in ["post"]:
-            return bool(request.user and request.user.is_authenticated)
+            if not bool(request.user and request.user.is_authenticated):
+                return False
+            if request.method == "DELETE":
+                return request.user == obj.author
+            return True
+
         return False
 
     def has_permission(self, request, view):

@@ -9,7 +9,7 @@ from .serializers import PostSerializer
 
 
 class PostViewSet(AbstractViewSet):
-    http_method_names = ("post", "get")
+    http_method_names = ("post", "get", "put", "delete")
     permission_classes = (UserPermission,)
     serializer_class = PostSerializer
 
