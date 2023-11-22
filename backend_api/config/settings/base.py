@@ -39,6 +39,7 @@ CUSTOM_APPS = [
     "apps.core.apps.CoreConfig",
     "apps.auth.apps.AuthConfig",
     "apps.post.apps.PostConfig",
+    "apps.comment.apps.CommentConfig",
 ]
 
 THIRD_PARTY_APPS = [
